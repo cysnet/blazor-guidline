@@ -2,11 +2,21 @@
 
 <PageTitle>Index</PageTitle>
 
-<CButton Text="Primary CBUTTON" ButtonStyle="ButtonStyle.Primary"></CButton>
-<CButton Text="Secondary CBUTTON" ButtonStyle="ButtonStyle.Secondary"></CButton>
+<CButton Text="Primary CBUTTON" ButtonStyle="ButtonStyle.Primary" OnClick="@(()=>Click("Primary CBUTTON"))"></CButton>
+<CButton Text="Secondary CBUTTON" ButtonStyle="ButtonStyle.Secondary" OnClick="@(()=>Click("Secondary CBUTTON"))"></CButton>
 
-<CButton Text="FullWidth Primary CBUTTON" ButtonStyle="ButtonStyle.Primary" IsFullWidth="true"></CButton>
+<CButton Text="FullWidth Primary CBUTTON" ButtonStyle="ButtonStyle.Primary" IsFullWidth="true" OnClick="@(()=>Click("FullWidth Primary CBUTTON"))"></CButton>
 
 
-<CButton Text="Primary CBUTTON" ButtonStyle="ButtonStyle.Primary" Class="outline"></CButton>
-<CButton Text="Primary CBUTTON" ButtonStyle="ButtonStyle.Primary" Style="font-size:20px"></CButton>
+<CButton Text="Outline Primary CBUTTON" ButtonStyle="ButtonStyle.Primary" Class="outline" OnClick="@(()=>Click("Outline Primary CBUTTON"))"></CButton>
+<CButton Text="Big Font Primary CBUTTON" ButtonStyle="ButtonStyle.Primary" Style="font-size:20px" OnClick="@(()=>Click("Big Font Primary CBUTTON"))"></CButton>
+
+<div>@MyProperty</div>
+
+@code{
+    public string MyProperty { get; set; }
+    public void Click(string type)
+    {
+        MyProperty = $"{type} clicked";
+    }
+}
