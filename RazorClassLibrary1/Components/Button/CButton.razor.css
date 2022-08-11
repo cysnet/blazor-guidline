@@ -1,0 +1,18 @@
+﻿.button {
+    border: none;
+    margin: 5px;
+    border-radius:5px
+}
+.primary {
+    background-color:blue;
+    color:white
+}
+
+.secondary {
+    background-color: white;
+    color: blue
+}
+
+.outline{
+    border:dashed
+}
