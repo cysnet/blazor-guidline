@@ -12,11 +12,3 @@
 <CButton Text="Big Font Primary CBUTTON" ButtonStyle="ButtonStyle.Primary" Style="font-size:20px" OnClick="@(()=>Click("Big Font Primary CBUTTON"))"></CButton>
 
 <div>@MyProperty</div>
-
-@code {
-    public string MyProperty { get; set; }
-    public void Click(string type)
-    {
-        MyProperty = $"{type} clicked";
-    }
-}
