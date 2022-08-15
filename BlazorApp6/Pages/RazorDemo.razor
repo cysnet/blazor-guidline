@@ -1,0 +1,110 @@
+﻿@page "/razordemo"
+@implements IDisposable
+@preservewhitespace true
+
+
+<p>@(UserName)</p>
+<ul>
+    @foreach (var item in Hobbies)
+    {
+        <li>@item</li>
+    }
+</ul>
+<p>@@Username</p>
+
+
+@*隐式表达式*@
+@DateTime.Now
+@GetUserName("Jack")
+
+@*显示表达式*@
+<p>7天后时间@DateTime.Now+TimeSpan.FromDays(7)</p> @*隐式*@
+<p>7天后时间 @DateTime.Now+TimeSpan.FromDays(7)</p>  @*隐式*@
+<p>天后时间@(DateTime.Now + TimeSpan.FromDays(7))</p>
+<p>@(GetUserName<string>("Jack"))</p>
+
+@*代码块*@
+@{
+    var age = 18;
+    <p>年龄是@(age)岁</p>
+}
+
+@for (var i = 0; i < Hobbies.Count; i++)
+{
+    var hobby = Hobbies[i];
+    @:hobby: @hobby
+}
+
+@*控制结构*@
+@*条件*@
+@if (UserName == "A")
+{
+    <text>用户名是A</text>
+}
+else if (UserName == "B")
+{
+    <text>用户名是A</text>
+}
+else
+{
+    <text>用户名是 @UserName</text>
+}
+
+@switch (UserName)
+{
+    case "A":
+        <text>用户名是A</text>
+        break;
+    default:
+        <text>用户名是 @UserName</text>
+        break;
+}
+
+@*using*@
+@using (var httpclient = new HttpClient())
+{
+
+}
+
+@*try catch finally*@
+@try
+{
+    throw new InvalidOperationException("You did something invalid.");
+}
+catch (Exception ex)
+{
+    <p>The exception message: @ex.Message</p>
+}
+finally
+{
+    <p>The finally statement.</p>     <p>The finally statement.</p>
+}
+
+@lock (locker)
+{
+    // Do critical section work
+}
+
+@{
+    /* C# comment */
+    // Another C# comment
+}
+
+<!-- <p>注释</p> -->
+
+@*@{
+    if (UserName == "A")
+    {
+        <p>@UserName</p>
+    }
+}*@
+
+
+
+<input @bind="UserName" />
+
+@code{
+    public void Dispose(){
+
+    }
+}

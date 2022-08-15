@@ -9,6 +9,11 @@
 
 
 <CButton Text="Outline  CBUTTON" ButtonStyle="ButtonStyle.Secondary" Class="outline" OnClick="@(()=>Click("Outline Secondary CBUTTON"))"></CButton>
-<CButton Text="Big Font Primary CBUTTON" ButtonStyle="ButtonStyle.Primary" Style="font-size:20px" OnClick="@(()=>Click("Big Font Primary CBUTTON"))"></CButton>
+<CButton @ref="button1" Text="Big Font Primary CBUTTON" ButtonStyle="ButtonStyle.Primary" Style="font-size:20px" OnClick="@(()=>Click("Big Font Primary CBUTTON"))"></CButton>
 
 <div>@MyProperty</div>
+
+
+@code{
+    public CButton button1 { get; set; }
+}
