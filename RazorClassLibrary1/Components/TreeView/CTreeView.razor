@@ -1,0 +1,12 @@
+﻿@using Syncfusion.Blazor.Navigations
+@namespace RazorClassLibrary1.Components
+
+<div class="control-section">
+    <div class="control_wrapper">
+        @*Initialize the TreeView component*@
+        <SfTreeView TValue="TreeItem">
+            <TreeViewFieldsSettings DataSource="@TreeDataSource" Id="NodeId" Text="NodeText" Expanded="Expanded" Child="@("Child")"></TreeViewFieldsSettings>
+        </SfTreeView>
+    </div>
+</div>
+
